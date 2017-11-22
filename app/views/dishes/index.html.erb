@@ -117,7 +117,7 @@
                 <label for="venue_id" class="control-label sr-only">
                     Venue
                 </label>
-                <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @bookmark.venue_id), prompt:"Choose a venue", :class => "form-control input-sm") %>
+                <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @bookmark.venue_id), prompt:"Choose a venue...", :class => "form-control input-sm") %>
               </div>
               
               <button class="btn btn-primary btn-sm">
@@ -127,17 +127,17 @@
             </form>
           <% end %>
         </td>
-        <td>
-          <% if dish.cuisine.present? %>
-            <a href="/cuisines/<%= dish.cuisine.id %>">
-              <%= dish.cuisine.name %>
-            </a>
-          <% end %>
+        <td class="text-right">
+          <span class="label">
+            <% if dish.cuisine.present? %>
+              <a href="/cuisines/<%= dish.cuisine.id %>">
+                <%= dish.cuisine.name %>
+              </a>
+            <% end %>
+          </span>
         </td>
-        <td>
-          <a href="/dishes/<%= dish.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_dish/<%= dish.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-        </td>
+
+
       </tr>
       <% end %>
     </table>
