@@ -2,7 +2,7 @@ class CuisinesController < ApplicationController
   def index
     @q = Cuisine.ransack(params[:q])
     @cuisines = @q.result(:distinct => true).includes(:dishes).page(params[:page]).per(10)
-
+    @bookmark = Bookmark.new
     render("cuisines/index.html.erb")
   end
 
