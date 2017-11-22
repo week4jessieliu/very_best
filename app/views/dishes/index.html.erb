@@ -111,11 +111,19 @@
               <input type="hidden" name="dish_id" value="<%= dish.id %>">
         
               <!-- Label and input for venue_id -->
-              
-              <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @bookmark.venue_id), prompt:"Choose a venue...",:class => "form-control") %>
-        
+              <div class = "form-group">
+                <label for="venue_id" class="control-label sr-only">
+                    Venue
+                </label>
+                <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @bookmark.venue_id), prompt:"Choose a venue...", :class => "form-control input-sm") %>
+              </div>
               <!-- Label and input for user_id -->
               <input type="hidden" name="user_id" value="<%= current_user.id %>">
+              
+              <button class="btn btn-primary btn-sm">
+                <i class="fa fa-heart"></i>
+              </button>
+
             </form>
           <% end %>
         </td>
