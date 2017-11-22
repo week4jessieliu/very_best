@@ -98,9 +98,9 @@
           <a href="/dishes/<%= dish.id %>"><%= dish.name %></a>
         </td>
         <td>
-          <% if dish.bookmarks.find_by(:dish_id => dish.id).present? %>
-            <a href="/venues/<%= dish.bookmarks.find_by(:dish_id => dish.id).venue.id %>">
-              <%= dish.bookmarks.find_by(:dish_id => dish.id).venue.name %>
+          <% if dish.bookmarks.find_by(:user_id => current_user.id).present? %>
+            <a href="/venues/<%= dish.bookmarks.find_by(:user_id => current_user.id).venue.id %>">
+              <%= dish.bookmarks.find_by(:user_id => current_user.id).venue.name %>
             </a>
           <% else %>
             <form action="/create_bookmark" method="post">
@@ -109,16 +109,16 @@
         
               <!-- Label and input for dish_id -->
               <input type="hidden" name="dish_id" value="<%= dish.id %>">
+              <!-- Label and input for user_id -->
+              <input type="hidden" name="user_id" value="<%= current_user.id %>">
         
               <!-- Label and input for venue_id -->
               <div class = "form-group">
                 <label for="venue_id" class="control-label sr-only">
                     Venue
                 </label>
-                <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @bookmark.venue_id), prompt:"Choose a venue...", :class => "form-control input-sm") %>
+                <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @bookmark.venue_id), prompt:"Choose a venue", :class => "form-control input-sm") %>
               </div>
-              <!-- Label and input for user_id -->
-              <input type="hidden" name="user_id" value="<%= current_user.id %>">
               
               <button class="btn btn-primary btn-sm">
                 <i class="fa fa-heart"></i>
