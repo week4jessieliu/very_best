@@ -117,7 +117,7 @@
                 <label for="venue_id" class="control-label sr-only">
                     Venue
                 </label>
-                <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @bookmark.venue_id), prompt:"Choose a venue...", :class => "form-control input-sm") %>
+                <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @bookmark.venue_id), prompt:"Choose a venue", :class => "form-control input-sm") %>
               </div>
               
               <button class="btn btn-primary btn-sm">
