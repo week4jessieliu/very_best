@@ -15,15 +15,15 @@
       <%= f.label :cuisine_name, "Cuisine" %>
       
     <div class = 'checkbox'>
-      <% @cuisines.each do |cuisine|%>
-        <%= f.check_box :cuisine_name, :id => "cuisine_id", :value => cuisine.id%>
-        <p><%= cuisine.name%></P>
-      <% end %>
+    <% @cuisines.each do |cuisine|%>
+      <%= f.check_box :cuisine_name, :id => "cuisine_id", :value => cuisine.id%>
+      <p><%= cuisine.name%></P>
+    <% end %>
     </div>
     </div>
 
 
-    <%= f.submit :class => "btn btn-primary btn-block mb-1", :name=>"commit", :value=>"Search" %>
+    <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
 
       <a href="/dishes" class="btn btn-default btn-block mb-1">Clear filters</a>
     <% end %>
