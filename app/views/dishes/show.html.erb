@@ -108,7 +108,7 @@
       <% @dish.specialists.each do |venue| %>
         <% if venue.bookmarks.find_by(:user_id => current_user.id).present? %>
           <li class="list-group-item">
-          <p><a href="/venues/<%= venue.id %>">
+          </p><a href="/venues/<%= venue.id %>">
             <%= venue.name %>
           </a></p>
           <div class="btn-group btn-group-xs pull-right">
