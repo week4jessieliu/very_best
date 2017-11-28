@@ -20,7 +20,7 @@
           <input type="hidden" name="dish_id" value="<%= @dish.id %>">
   
           <!-- Label and input for venue_id -->
-          <div class="form-group" >
+          <div class="form-inline" >
             <label for="venue_id" class="control-label">
             </label>
             
@@ -28,7 +28,6 @@
           <input type="hidden" name="user_id" value="<%= current_user.id %>">
           
           <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name), :class => "form-control", :prompt => "Choose a venue...") %>
-          </div>
           
           <button class="btn btn-danger btn">
             <span class="glyphicon glyphicon-heart" aria-hidden="true"> </span>
@@ -37,6 +36,7 @@
           <small class="pull-right text-muted">
               right now
           </small>
+          </div>
         </form>
       </li>
        
