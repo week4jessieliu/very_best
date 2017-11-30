@@ -73,7 +73,7 @@ class BookmarksController < ApplicationController
 
       case referer
       when "/bookmarks/#{@bookmark.id}/edit", "/update_bookmark"
-        redirect_to("/bookmarks/#{@bookmark.id}", :notice => "Bookmark updated successfully.")
+        redirect_to("/dishes/#{@bookmark.dish_id}", :notice => "Bookmark updated successfully.")
       else
         redirect_back(:fallback_location => "/", :notice => "Bookmark updated successfully.")
       end

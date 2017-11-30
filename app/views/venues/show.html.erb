@@ -7,7 +7,9 @@
           <h4 class="panel-title">
           <%= @venue.name %> 
           <small class= "text-muted">
-            <%= @venue.neighborhood.name %>
+            <%= @venue.neighborhood.name %>,
+            <%= @venue.address %>,
+            USA
           </small>
           </h4>
         </div>
@@ -26,7 +28,8 @@
       <% @venue.bookmarks.each do |bookmark| %>
         <% if bookmark.user_id == current_user.id %>
         <li class="list-group-item">
-          <a href="/bookmarks/<%= bookmark.id %>">
+        <p>
+          <a href="/venues/<%= @venue.id %>">
             <%= bookmark.dish.name %>
           </a>
           <small class="pull-right text-muted">
@@ -39,6 +42,11 @@
                 </a>
               
           </small>
+          </p>
+          <p>
+          <%= bookmark.notes %>
+            </p>
+          
         </li>
         <% end %>
       <% end %>
