@@ -72,7 +72,7 @@
                 </label>
                 
               <div style="display:inline-block">
-                <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name, @bookmark.venue_id), prompt:"Choose a venue...", :class => "form-control input-sm") %>
+                <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all.sort_by {|venue| venue.name}, :id, :name, @bookmark.venue_id), prompt:"Choose a venue...", :class => "form-control input-sm") %>
               </div>
               
               <button class="btn btn-primary btn-sm">
