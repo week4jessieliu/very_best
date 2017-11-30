@@ -1,6 +1,7 @@
 class DishesController < ApplicationController
   def index
     @q = Dish.ransack(params[:q])
+    @q.sorts = 'name asc' if @q.sorts.empty?
     @dishes = @q.result(:distinct => true).includes(:cuisine, :bookmarks, :fans, :specialists).page(params[:page]).per(10)
     @bookmark = Bookmark.new
     @cuisines = Cuisine.all
