@@ -27,7 +27,7 @@
           <!-- Label and input for user_id -->
           <input type="hidden" name="user_id" value="<%= current_user.id %>">
           
-          <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all, :id, :name), :class => "form-control", :prompt => "Choose a venue...") %>
+          <%= select_tag(:venue_id, options_from_collection_for_select(Venue.all.sort_by {|venue| venue.name}, :id, :name), :class => "form-control", :prompt => "Choose a venue...") %>
           
           <button class="btn btn-danger btn">
             <span class="glyphicon glyphicon-heart" aria-hidden="true"> </span>
