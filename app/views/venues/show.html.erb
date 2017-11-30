@@ -28,6 +28,7 @@
       <% @venue.bookmarks.each do |bookmark| %>
         <% if bookmark.user_id == current_user.id %>
         <li class="list-group-item">
+        <p>
           <a href="/venues/<%= @venue.id %>">
             <%= bookmark.dish.name %>
           </a>
@@ -41,6 +42,11 @@
                 </a>
               
           </small>
+          </p>
+          <p>
+          <%= bookmark.notes %>
+            </p>
+          
         </li>
         <% end %>
       <% end %>
