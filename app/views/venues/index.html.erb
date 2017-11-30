@@ -31,6 +31,7 @@
 
   <div class="col-md-6">
     <div class="panel panel-default">
+      
       <div class="panel-heading">
         <h4 class="panel-title">
           Places you've bookmarked
@@ -41,28 +42,25 @@
         <div id="location_map" style="height: 360px;"></div>
       </div>
 
-    <table class="table table-striped table-hover">
       
       <% @venues.each do |venue| %>
         <% if venue.bookmarks.find_by(:user_id => current_user.id).present? %>
-          <tr>
-        <td> 
-        <a href="/venues/<%=venue.id%>">
-          <%= venue.name %>
-        </a>  
-        </td>
-        <td>
+          <ul class="list-group">
+            <li class="list-group-item">
+              <a href="/venues/<%=venue.id%>">
+                <%= venue.name %>
+              </a>  
           <% if venue.neighborhood.present? %>
-            <small class="pull-right">
+            <small class="text-muted pull-right">
               <%= venue.neighborhood.name %>, <%= venue.neighborhood.city %>
             </small>
           <% end %>
-        </td>
-      
-      </tr>
+        </li></ul>
         <% end %>
       <% end %>
-    </table>
+
+      <div class="panel-footer text-center"> 
+      </div>
   </div>
 </div>
 
