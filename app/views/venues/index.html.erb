@@ -42,35 +42,27 @@
       </div>
 
     <table class="table table-striped table-hover">
-      <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Neighborhood</th>
-        <th>Actions</th>
-      </tr>
       
       <% @venues.each do |venue| %>
         <% if venue.bookmarks.find_by(:user_id => current_user.id).present? %>
           <tr>
-        <td><%= venue.name %></td>
-        <td><%= venue.address %></td>
+        <td> 
+        <a href="/venues/<%=venue.id%>">
+          <%= venue.name %>
+        </a>  
+        </td>
         <td>
           <% if venue.neighborhood.present? %>
-            <a href="/neighborhoods/<%= venue.neighborhood.id %>">
-              <%= venue.neighborhood.name %>
-            </a>
+            <small class="pull-right">
+              <%= venue.neighborhood.name %>, <%= venue.neighborhood.city %>
+            </small>
           <% end %>
         </td>
-        <td>
-          <a href="/venues/<%= venue.id %>" class="btn btn-primary">Show</a>
-          <a href="/venues/<%= venue.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_venue/<%= venue.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-        </td>
+      
       </tr>
         <% end %>
       <% end %>
     </table>
-    <%= paginate @venues, theme: 'twitter-bootstrap-4' %>
   </div>
 </div>
 
